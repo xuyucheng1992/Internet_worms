@@ -33,7 +33,7 @@ def send_mail(title,html):
 @logger.catch
 def read_ini(key):
     """
-    读取配置文件里的标题
+    读取配置文件里的时间
     """
     path = os.path.join(base_path,"honganyuan.ini")
     cf = configparser.ConfigParser()
@@ -43,13 +43,14 @@ def read_ini(key):
 @logger.catch
 def write_ini(key,value):
     """
-    更新文章标题
+    更新文章时间
     """
     path = os.path.join(base_path,"honganyuan.ini")
     cf = configparser.ConfigParser()
     cf.read(path, encoding="utf-8")
     cf.set("count", key,value)
     cf.write(open(path,"r+",encoding="utf-8"))
+
 
 @logger.catch
 def get_content():
